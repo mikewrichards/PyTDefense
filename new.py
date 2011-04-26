@@ -110,8 +110,8 @@ def drawMap():
     for y, row in enumerate(grid):
         for x, element in enumerate(grid):
             pygame.draw.rect(surface, colors['white'],
-                             pygame.Rect(x * tilex, y * tiley, tilex, tiley),
-                             1)
+                             pygame.Rect(x * tilex, y * tiley,
+                                         tilex, tiley), 1)
 
 
 

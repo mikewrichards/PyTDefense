@@ -94,6 +94,11 @@ def calculateMoveGrid(grid, x, y):
     calculateMove(grid, newGrid, x, y, endx, endy)
     return newGrid
 
+def loadMap(level):
+    with open('maps/' + level, 'r') as f:
+        m = [y for x in f for y in x]
+    return m
+
 def handleEvent(event):
     if event.type == QUIT:
         pygame.quit()
@@ -129,6 +134,10 @@ for row in moveGrid:
 
 print("GENERATED:")
 for row in calculateMoveGrid(grid, 0, 0):
+    print(str(row))
+
+print("LOADED MAP:")
+for row in loadMap('simple.map'):
     print(str(row))
 
 while True:

@@ -102,19 +102,21 @@ def handleEvent(event):
 def gameLogic():
     x = 1
 
+def drawTile(element, x, y, tilex, tiley):
+    if element == 0 or element == 1 or element == 2:
+        pygame.draw.rect(surface, colors['white'],
+                         pygame.Rect(x * tilex, y * tiley,
+                                     tilex, tiley), 1)
+
+
 def drawMap():
     xsize = len(grid)
     ysize = len(grid[0])
     tilex = WINDOWWIDTH / xsize
     tiley = WINDOWHEIGHT / ysize
     for y, row in enumerate(grid):
-        for x, element in enumerate(grid):
-            pygame.draw.rect(surface, colors['white'],
-                             pygame.Rect(x * tilex, y * tiley,
-                                         tilex, tiley), 1)
-
-
-
+        for x, element in enumerate(row):
+            drawTile(element, x, y, tilex, tiley)
 
 def draw():
     surface.fill(colors['black'])
